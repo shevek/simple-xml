@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-public class InputNodeAdapterTest extends TestCase {
+public class NodeBuilderTest extends TestCase {
     
     private static final String SOURCE = 
     "<?xml version='1.0'?>\n" +
@@ -36,13 +36,8 @@ public class InputNodeAdapterTest extends TestCase {
     "</root>";
    
     public void testNodeAdapter() throws Exception {         
-       DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-       builderFactory.setNamespaceAware(true);
        Reader reader = new StringReader(SOURCE);
-       InputSource source = new InputSource(reader);
-       DocumentBuilder builder = builderFactory.newDocumentBuilder();       
-       Document document = builder.parse(source);
-       InputNode event = NodeAdapterBuilder.read(document);
+       InputNode event = NodeBuilder.read(reader);
        
        assertTrue(event.isRoot());
        assertEquals("root", event.getName());         

@@ -113,7 +113,7 @@
 
    <target name="-coverage" depends="-instrument">
       <junit printsummary="yes" haltonfailure="yes" fork="yes">
-	      <sysproperty key="net.sourceforge.cobertura.datafile"  file="${build.path}/${cobertura.data}" />
+	     <sysproperty key="net.sourceforge.cobertura.datafile"  file="${build.path}/${cobertura.data}" />
          <classpath location="${instrumented.build.path}"/>
          <classpath location="${test.build.path}"/>
          <classpath location="${main.build.path}"/>
@@ -145,6 +145,25 @@
    </target>
 
    <target name="test" depends="-compile" description="Compile project and run unit tests">
+      <junit showoutput="true" printsummary="yes" haltonfailure="yes">
+         <classpath location="${main.build.path}"/>
+         <classpath location="${test.build.path}"/>
+         <classpath>
+            <fileset dir="${lib.path}">
+               <include name="**/*.jar"/>
+               <exclude name="**/stax-api-1.0.1.jar"/>
+               <exclude name="**/stax-1.2.0.jar"/>
+               <exclude name="**/wstx-asl-3.2.1.jar"/>
+            </fileset>
+         </classpath>
+         <formatter type="plain"/>
+         <batchtest fork="yes" todir="${test.report.path}">
+            <fileset dir="${test.build.path}">
+               <include name="**/*Test.class"/>
+               <exclude name="**/*TestSuite.class"/>
+            </fileset>
+         </batchtest>
+      </junit>
       <junit showoutput="true" printsummary="yes" haltonfailure="yes">
          <classpath location="${main.build.path}"/>
          <classpath location="${test.build.path}"/>
