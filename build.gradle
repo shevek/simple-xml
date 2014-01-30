@@ -1,0 +1,24 @@
+ext.githubProjectName = rootProject.name
+
+buildscript {
+    apply from: file('gradle/buildscript.gradle'), to: buildscript 
+}
+
+apply from: file('gradle/convention.gradle')
+apply from: file('gradle/github.gradle')
+apply from: file('gradle/nexus.gradle')
+apply from: file('gradle/check.gradle')
+apply from: file('gradle/license.gradle')
+
+group = "org.anarres.mirrors.simpleframework"
+
+dependencies {
+	compile 'xpp3:xpp3:1.1.4c'
+	compile 'stax:stax:1.2.0'
+}
+
+test {
+	systemProperty 'output', 'build/tmp/output'
+	// https://bugs.openjdk.java.net/browse/JDK-8028111
+	systemProperty 'jdk.xml.entityExpansionLimit', '0'
+}
