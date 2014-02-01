@@ -88,8 +88,7 @@ class Allocate implements Value {
    
    /**
     * This is the type of the object instance that will be created
-    * and set on this value. If this represents an array then this
-    * is the component type for the array to be created.
+    * and set on this value.
     * 
     * @return the type of the object that will be instantiated
     */

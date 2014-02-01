@@ -74,7 +74,7 @@ class ArrayInstance implements Instance {
       if(value.isReference()) {
          return value.getValue();
       }
-      Object array = Array.newInstance(type, length);
+      Object array = Array.newInstance(type.getComponentType(), length);
       
       if(value != null) {
          value.setValue(array);

@@ -21,6 +21,7 @@ package org.simpleframework.xml.strategy;
 import org.simpleframework.xml.stream.NodeMap;
 import org.simpleframework.xml.stream.Node;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 
 /**
@@ -94,12 +95,17 @@ class ReadGraph extends HashMap {
       Node entry = node.remove(label);
       Class expect = type.getType();
       
-      if(expect.isArray()) {
-         expect = expect.getComponentType();
-      }
       if(entry != null) {      
          String name = entry.getValue();
-         expect = loader.load(name);
+         Class actual = loader.load(name);
+         // Arrays are annotated with the type of the element.
+         if (expect.isArray()) {
+            if (actual == expect.getComponentType())
+               actual = expect;
+            else
+               actual = Array.newInstance(actual, 0).getClass();
+         }
+         expect = actual;
       }  
       return readInstance(type, expect, node); 
    }

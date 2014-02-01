@@ -29,7 +29,7 @@ package org.simpleframework.xml.strategy;
  * @author Niall Gallagher
  */
 class Loader {
-   
+
    /**
     * This method is used to acquire the class of the specified name.
     * Loading is performed by the thread context class loader as this

@@ -45,7 +45,7 @@ public class CycleStrategyTest extends TestCase {
       
       assertEquals(12, value.getLength());
       assertEquals(null, value.getValue());
-      assertEquals(String.class, value.getType());
+      assertEquals(String[].class, value.getType());
       assertEquals(false, value.isReference());
    }
    

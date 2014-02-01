@@ -21,7 +21,7 @@ package org.simpleframework.xml.strategy;
 /**
  * The <code>ArrayValue</code> object is a value used for describing
  * arrays for a specified component type object. This provides the
- * component type for the array as well as the length of the array,
+ * array type for the array as well as the length of the array,
  * which allows the deserialization process to build a suitable length
  * array from the criteria taken from the XML element.
  * 
@@ -51,10 +51,12 @@ class ArrayValue implements Value {
     * provide sufficient criteria to the deserialization process 
     * to instantiate an array of the specified size an type.
     * 
-    * @param type this is the component type for the array
+    * @param type this is the array type for the array
     * @param size this is the size of the array to instantiate
     */
    public ArrayValue(Class type, int size) {
+      if (!type.isArray())
+	     throw new IllegalArgumentException("Not an array type: " + type);
       this.type = type;      
       this.size = size;
    }
@@ -82,11 +84,11 @@ class ArrayValue implements Value {
    }
    
    /**
-    * This will return the component type for the array instance 
+    * This will return the array type for the array instance 
     * that is described by this object. This is used to ensure that
     * an array with the correct component type can be instantiated.
     * 
-    * @return this returns the component type for the array
+    * @return this returns the array type for the array
     */
    public Class getType() {
       return type;

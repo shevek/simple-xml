@@ -100,11 +100,11 @@ class ArrayFactory extends Factory {
     * 
     * @return this object array type used for the instantiation  
     */
-   private Instance getInstance(Value value, Class entry) throws Exception {
-      Class expect = getComponentType();
+   private Instance getInstance(Value value, Class real) throws Exception {
+      Class expect = getType();
 
-      if(!expect.isAssignableFrom(entry)) {
-         throw new InstantiationException("Array of type %s cannot hold %s for %s", expect, entry, type);
+      if(!expect.isAssignableFrom(real)) {
+         throw new InstantiationException("Array of type %s cannot hold %s for %s", expect, real, type);
       }
       return new ArrayInstance(value);   
    }   

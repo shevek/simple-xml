@@ -215,7 +215,7 @@ class CompositeArray implements Converter {
             return true;
          }
          if(!next.isEmpty()) {
-            root.validate(next, type);
+            root.validate(next, type.getComponentType());
          }
       }
    }    

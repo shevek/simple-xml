@@ -228,9 +228,6 @@ abstract class Factory {
     * @return true if the field type can be assigned the type value
     */
    public static boolean isCompatible(Class expect, Class type) {
-      if(expect.isArray()) {
-         expect = expect.getComponentType();
-      }
       return expect.isAssignableFrom(type);           
    }
 
