@@ -1,16 +1,26 @@
-ext.githubProjectName = rootProject.name
-
 buildscript {
     apply from: file('gradle/buildscript.gradle'), to: buildscript 
 }
 
-apply from: file('gradle/convention.gradle')
-apply from: file('gradle/github.gradle')
-apply from: file('gradle/nexus.gradle')
-apply from: file('gradle/check.gradle')
-apply from: file('gradle/license.gradle')
+apply plugin: 'org.anarres.stdproject'
+stdproject {
+	javadocQuiet true
+}
 
-group = "org.anarres.mirrors.simpleframework"
+	group = "org.anarres.mirrors.simpleframework"
+
+	apply plugin: 'org.anarres.stdmodule'
+	stdmodule {
+		description "Simple is a high performance XML serialization and configuration framework for Java."
+		author id: 'shevek', name: 'Shevek', email: 'github@anarres.org'
+		author id: 'niallg', name: 'Niall Gallagher', email: 'niallg@users.sf.net'
+		license 'Apache-2.0'
+	}
+
+	sourceCompatibility = 1.5
+	animalsniffer {
+		signature = "org.codehaus.mojo.signature:java15:+@signature"
+	}
 
 dependencies {
 	compile 'xpp3:xpp3:1.1.4c'
