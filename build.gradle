@@ -19,16 +19,26 @@ stdproject {
 
 	sourceCompatibility = 1.5
 	animalsniffer {
-		signature = "org.codehaus.mojo.signature:java15:+@signature"
+		signature = "org.codehaus.mojo.signature:java16:+@signature"
 	}
 
 dependencies {
-	compile 'xpp3:xpp3:1.1.4c'
-	compile 'stax:stax:1.2.0'
+	// Not required with kxml2.
+	// compile 'xpp3:xpp3:1.1.4c'
+
+	// Not required with new JDKs.
+	// compile 'stax:stax:1.2.0'
+
+	// Recommended, but not required?
+	// compile 'org.codehaus.woodstox:stax2-api:3.1.4'
+
+	compile 'net.sf.kxml:kxml2:2.3.0'
 }
 
 test {
 	systemProperty 'output', 'build/tmp/output'
 	// https://bugs.openjdk.java.net/browse/JDK-8028111
-	systemProperty 'jdk.xml.entityExpansionLimit', '0'
+	if (!JavaVersion.current().isJava8Compatible()) {
+		systemProperty 'jdk.xml.entityExpansionLimit', '0'
+	}
 }
