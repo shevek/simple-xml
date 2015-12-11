@@ -21,6 +21,7 @@ package org.simpleframework.xml.util;
 import java.util.AbstractSet;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 /**
  * The <code>Dictionary</code> object represents a mapped set of entry
@@ -134,7 +135,8 @@ public class Dictionary<T extends Entry> extends AbstractSet<T> {
     *
     * @see org.simpleframework.xml.util.Entry
     */
-   private static class Table<T> extends HashMap<String, T> {
+   // ConversionTest assumes that order of add() is preserved, so this has to be a LinkedHashMap.
+   private static class Table<T> extends LinkedHashMap<String, T> {
       
       /**
        * Constructor for the <code>Table</code> object. This will
