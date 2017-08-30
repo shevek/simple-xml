@@ -41,6 +41,9 @@ dependencies {
 	// Recommended, but not required?
 	// compile 'org.codehaus.woodstox:stax2-api:3.1.4'
 
+	// For debugging only.
+	// compile "org.slf4j:slf4j-api:1.7.12"
+
 	compile 'net.sf.kxml:kxml2:2.3.0'
 }
 
