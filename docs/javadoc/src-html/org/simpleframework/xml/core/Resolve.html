@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Resolve.java June 2007<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * Copyright (C) 2007, Niall Gallagher &lt;niallg@users.sf.net&gt;<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * Licensed under the Apache License, Version 2.0 (the "License");<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * you may not use this file except in compliance with the License.<a name="line.7"></a>
+<span class="sourceLineNo">008</span> * You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * Unless required by applicable law or agreed to in writing, software<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or <a name="line.14"></a>
+<span class="sourceLineNo">015</span> * implied. See the License for the specific language governing <a name="line.15"></a>
+<span class="sourceLineNo">016</span> * permissions and limitations under the License.<a name="line.16"></a>
+<span class="sourceLineNo">017</span> */<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>package org.simpleframework.xml.core;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.lang.annotation.RetentionPolicy;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.lang.annotation.Retention;<a name="line.22"></a>
+<span class="sourceLineNo">023</span><a name="line.23"></a>
+<span class="sourceLineNo">024</span>/**<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * The &lt;code&gt;Resolve&lt;/code&gt; method is used to resolve an object that<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * has been deserialized from the XML document. This is used when the<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * deserialized object whats to provide a substitute to itself within<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * the object graph. This is particularly useful when an object is<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * used to reference an external XML document, as it allows that XML<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * document to be deserialized in to a new object instance.<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * &lt;p&gt;<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * This is similar to the &lt;code&gt;readResolve&lt;/code&gt; method used within<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * Java Object Serialization in that it is used to create a object to <a name="line.33"></a>
+<span class="sourceLineNo">034</span> * plug in to the object graph after it has been fully deserialized.<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * Care should be taken when using this annotation as the object that<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * is returned from the resolve method must match the field type such<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * that the resolved object is an assignable substitute.<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * <a name="line.38"></a>
+<span class="sourceLineNo">039</span> * @author Niall Gallagher<a name="line.39"></a>
+<span class="sourceLineNo">040</span> */<a name="line.40"></a>
+<span class="sourceLineNo">041</span>@Retention(RetentionPolicy.RUNTIME)<a name="line.41"></a>
+<span class="sourceLineNo">042</span>public @interface Resolve {  <a name="line.42"></a>
+<span class="sourceLineNo">043</span>}<a name="line.43"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
